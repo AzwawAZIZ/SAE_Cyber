@@ -50,16 +50,25 @@ make
 ## 🚀 Utilisation
 
 ### 🔐 Chiffrement / Déchiffrement
-
+Chiffrement
 ```bash
-./cipher <fichier>
-./decipher <fichier>
+echo -n 'CLE' | base64
+base64 fichier.txt > fichier.b64 
+./cipher <cleenBase64> <fichier.b64> > <fichier.vigenere>
+base64 -d fichier.vigenere > fichier.bin
 ```
+Déchiffrement 
+```bash
+base64 fichier.bin >  fichier.vig
+./decipher <cleenBase64> <fichier.vigenere> > fichier.b64
+base64 -d fichier.b64 > fichier.txt 
 
+```
+Remarque : une perte d'information sur le dernier bit
 ### 🔎 Recherche de clé
 
 ```bash
-./findkey <fichier>
+./findkey <fichierclair> <fichierchiffre>
 ```
 
 ---
